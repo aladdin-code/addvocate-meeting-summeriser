@@ -1,0 +1,230 @@
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles and Theme Variables */
+@layer base {
+  :root {
+    /* Updated color variables to ensure black works properly */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 9.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    /* Changed primary color to match your brand purple */
+    --primary: 264 91% 72%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Changed accent to match your brand purple */
+    --accent: 264 91% 72%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    /* Changed ring to match your brand purple */
+    --ring: 264 91% 72%;
+    --radius: 0.5rem;
+    /* Sidebar variables also updated to match brand colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 264 80% 16%;
+    --sidebar-primary: 264 91% 72%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 264 95% 95%;
+    --sidebar-accent-foreground: 264 80% 16%;
+    --sidebar-border: 264 30% 90%;
+    --sidebar-ring: 264 91% 72%;
+  }
+  
+  /* Reset Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html, #root {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    overflow: hidden;
+  }
+  
+  /* Remove any purple borders or backgrounds */
+  body::before, body::after, #root::before, #root::after, div::before, div::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    border: none !important;
+  }
+  
+  .bg-purple-frame {
+    display: none;
+  }
+ 
+}
+
+/* Component Styles */
+@layer components {
+  /* Sidebar Components */
+  .sidebar-item {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-all hover:bg-sidebar-accent hover:text-sidebar-accent-foreground;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground font-medium;
+  }
+  
+  /* Authentication Components */
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  .auth-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .auth-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .auth-logo {
+    height: 60px;
+  }
+  
+  .auth-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .auth-form-group {
+    margin-bottom: 0.8rem;
+  }
+  
+  .auth-input-field {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  .auth-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .auth-error-message {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: #fff0f0;
+    color: #d32f2f;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+  
+  .auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+  
+  .auth-footer-link {
+    font-weight: 500;
+  }
+  
+  /* Dashboard Components */
+  .dashboard-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+  }
+  
+  .content-area {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    border-right: 1px solid #e5e7eb;
+    background-color: white;
+  }
+  
+  .card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    background-color: white;
+    padding: 2em;
+  }
+  
+  /* Logo and Animation Styles */
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
+  /* Fix for positioning */
+  .fixed, .absolute {
+    z-index: auto;
+  }
+}

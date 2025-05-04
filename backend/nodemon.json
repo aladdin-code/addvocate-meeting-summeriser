@@ -1,0 +1,8 @@
+{
+    "watch": [
+        "src",
+        "tsconfig.json"
+    ],
+    "ext": "ts,js,json",
+    "exec": "npm run start:dev"
+}
