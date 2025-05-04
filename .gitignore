@@ -1,5 +1,12 @@
-# Root level
-/.env 
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Root level environment files (alternative syntax)
+/.env
+/.env.*
+!/.env.example
 
 # Logs
 logs
